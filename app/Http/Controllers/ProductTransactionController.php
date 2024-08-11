@@ -25,7 +25,8 @@ class ProductTransactionController extends Controller
             // jika yang login itu sebagai pembeli  
             // $user = User::where('id', '=', Auth::user()->id);
 
-            $product_transaction = $user->product_transaction;
+            $product_transaction = $user->product_transaction()->orderBy('id','DESC')->get(); //jika ingin di urutkan
+            // $product_transaction = $user->product_transaction; // jika tidak ingin diurutkan
             // kita tidak bisa menggunakan $user->product_transaction->orderBy('id','DESC'), karena kita ingin melakukan orderBY
             // mendapatkan product transaction dari user yang login 
 
